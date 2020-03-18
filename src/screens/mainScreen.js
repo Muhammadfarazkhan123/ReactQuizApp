@@ -37,7 +37,7 @@ class MainScreen extends Component {
                   boxShadow: "2px 2px 5px grey",
                   fontSize: 50,
                   fontWeight: "bold",
-                  backgroundColor: "#0de32d",
+                  backgroundColor: "green",
                   color: "white"
                 }}
               >

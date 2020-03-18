@@ -24,22 +24,22 @@ class AppBarScreen extends Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" style={{ backgroundColor: "green" }}>
           <Toolbar>
-            <IconButton
+            {/* <IconButton
               edge="start"
               className={classes.menuButton}
               color="inherit"
               aria-label="menu"
             >
               <MenuIcon />
-            </IconButton>
+            </IconButton> */}
             <Typography variant="h6" color="inherit" className={classes.title}>
-              News
+              Quiz App
             </Typography>
-            <Button color="inherit" style={{ marginLeft: 1170 }}>
+            {/* <Button color="inherit" style={{ marginLeft: 1170 }}>
               Login
-            </Button>
+            </Button> */}
           </Toolbar>
         </AppBar>
       </div>
