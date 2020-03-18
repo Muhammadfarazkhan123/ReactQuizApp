@@ -56,6 +56,8 @@ class Question extends Component {
         this.setState({ index: index });
 
         document.getElementById(value).style.backgroundColor = "white";
+        document.getElementById(value).style.color = "black";
+
         var nodes = document
           .getElementById("mainDiv")
           .getElementsByTagName("button");
@@ -85,11 +87,14 @@ class Question extends Component {
     this.setState({ value: e.target.value });
     if (e.target.value === unescape(typeQuest[index].correct_answer)) {
       document.getElementById(e.target.value).style.backgroundColor = "green";
+      document.getElementById(e.target.value).style.color = "white";
+
       score++;
       // alert("good ");
       this.setState({ score });
     } else {
       document.getElementById(e.target.value).style.backgroundColor = "red";
+      document.getElementById(e.target.value).style.color = "white";
     }
   }
 
@@ -197,7 +202,18 @@ class Question extends Component {
         )}
         {index + 1 == typeQuest.length && (
           <Link to="/Result">
-            <button onClick={this.finish}>finish</button>
+            <button
+              onClick={this.finish}
+              style={{
+                border: "2px solid black",
+                width: "20%",
+                marginTop: "8%",
+                fontSize: 20,
+                borderRadius: 5
+              }}
+            >
+              Finish
+            </button>
           </Link>
         )}
       </div>

@@ -14,11 +14,11 @@ class MainScreen extends Component {
     return (
       <div
         style={{
-          width: "50%",
-          marginLeft: "25%",
-          marginTop: "1%"
+          marginTop: "5%",
+          marginBottom: "5%"
         }}
       >
+        <h1 style={{ color: "grey" }}>Choose one category to start Test.</h1>
         {array.map(v => {
           return (
             <Link to="/Quiz">
@@ -27,8 +27,21 @@ class MainScreen extends Component {
                   this.selected(e);
                 }}
                 value={v}
+                style={{
+                  width: "25%",
+                  height: 200,
+                  marginLeft: "3%",
+                  marginRight: "3%",
+                  borderRadius: 5,
+                  border: "1px solid #cfcfcf",
+                  boxShadow: "2px 2px 5px grey",
+                  fontSize: 50,
+                  fontWeight: "bold",
+                  backgroundColor: "#0de32d",
+                  color: "white"
+                }}
               >
-                {v}
+                {v.toUpperCase()}
               </button>
             </Link>
           );
