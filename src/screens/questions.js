@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateScore } from "../Redux/Action/scoreAction";
 import Progress from "react-progressbar";
-
+import "./Style.css";
 import Questions from "../Data/questions.json";
 import { Link } from "react-router-dom";
 
@@ -56,7 +56,6 @@ class Question extends Component {
         this.setState({ index: index });
 
         document.getElementById(value).style.backgroundColor = "white";
-
         var nodes = document
           .getElementById("mainDiv")
           .getElementsByTagName("button");
@@ -125,39 +124,12 @@ class Question extends Component {
         <div style={{ backgroundColor: "grey", borderRadius: 2 }}>
           <Progress completed={(index / typeQuest.length) * 100} />
         </div>
-        <h3
-          style={{
-            textAlign: "left",
-            marginLeft: 20,
-            fontSize: 35,
-            color: "grey",
-            fontWeight: "revert",
-            marginTop: 0
-          }}
-        >
+        <h3 className="heading">
           {"Question " + quesNum + " of " + typeQuest.length}
-          <p
-            style={{
-              textAlign: "left",
-              marginLeft: 10,
-              fontSize: 18,
-              fontWeight: "lighter",
-              marginTop: 0
-            }}
-          >
-            {unescape(typeQuest[index].category)}
-          </p>
+          <p className="category">{unescape(typeQuest[index].category)}</p>
         </h3>
 
-        <h3
-          style={{
-            textAlign: "left",
-            marginLeft: 30,
-            marginTop: 0,
-            fontSize: 20,
-            fontWeight: "normal"
-          }}
-        >
+        <h3 className="question">
           {"Q)" + unescape(typeQuest[index].question)}
         </h3>
         <div id="mainDiv">
@@ -166,20 +138,8 @@ class Question extends Component {
               <button
                 onClick={e => this.check(e)}
                 value={unescape(v)}
-                style={{
-                  height: 38,
-                  width: "25%",
-                  marginLeft: "12.5%",
-                  marginRight: "12.5%",
-                  marginTop: "8%",
-                  display: "inline",
-                  float: "left",
-                  borderRadius: 5,
-                  fontWeight: "bold",
-                  fontSize: 16
-                }}
                 id={unescape(v)}
-                name="a"
+                className="options"
               >
                 {unescape(v)}
               </button>
@@ -188,31 +148,13 @@ class Question extends Component {
         </div>
 
         {index + 1 != typeQuest.length && (
-          <button
-            onClick={this.next}
-            style={{
-              border: "2px solid black",
-              width: "20%",
-              marginTop: "8%",
-              fontSize: 20,
-              borderRadius: 5
-            }}
-          >
+          <button onClick={this.next} className="nextBtn">
             Next Question
           </button>
         )}
         {index + 1 == typeQuest.length && (
           <Link to="/Result">
-            <button
-              onClick={this.finish}
-              style={{
-                border: "2px solid black",
-                width: "20%",
-                marginTop: "8%",
-                fontSize: 20,
-                borderRadius: 5
-              }}
-            >
+            <button onClick={this.finish} className="finishBtn">
               Finish
             </button>
           </Link>

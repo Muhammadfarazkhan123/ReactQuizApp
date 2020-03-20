@@ -7,6 +7,7 @@ import {
   CircularProgressbarWithChildren
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import "./Style.css";
 
 class Result extends Component {
   constructor() {
@@ -26,15 +27,11 @@ class Result extends Component {
           RESULT:<p style={{ fontSize: 20 }}>75% marks are passing</p>
         </h1>
         {percentage >= 75 ? (
-          <p style={{ fontSize: 25, color: "green", fontWeight: "bold" }}>
-            Congratulations !!! You are cleared.
-          </p>
+          <p className="remarksYes">Congratulations !!! You are cleared.</p>
         ) : (
-          <p style={{ fontSize: 25, color: "red", fontWeight: "bold" }}>
-            Sorry !!!! better luck next time.
-          </p>
+          <p className="remarksNo">Sorry !!!! better luck next time.</p>
         )}
-        <div style={{ width: "20%", height: "10%", margin: "3% 60% 5% 40%" }}>
+        <div className="result">
           <CircularProgressbarWithChildren
             value={75}
             styles={buildStyles({

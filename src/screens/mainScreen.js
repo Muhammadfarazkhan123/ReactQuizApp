@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateUser } from "../Redux/Action/searchAction";
 import { Link } from "react-router-dom";
+import "./Style.css";
 
 const array = ["easy", "medium", "hard"];
 class MainScreen extends Component {
@@ -12,12 +13,7 @@ class MainScreen extends Component {
   }
   render() {
     return (
-      <div
-        style={{
-          marginTop: "5%",
-          marginBottom: "5%"
-        }}
-      >
+      <div className="maincategory">
         <h1 style={{ color: "grey" }}>Choose one category to start Test.</h1>
         {array.map(v => {
           return (
@@ -27,19 +23,7 @@ class MainScreen extends Component {
                   this.selected(e);
                 }}
                 value={v}
-                style={{
-                  width: "25%",
-                  height: 200,
-                  marginLeft: "3%",
-                  marginRight: "3%",
-                  borderRadius: 5,
-                  border: "1px solid #cfcfcf",
-                  boxShadow: "2px 2px 5px grey",
-                  fontSize: 50,
-                  fontWeight: "bold",
-                  backgroundColor: "green",
-                  color: "white"
-                }}
+                className="categoryBtn"
               >
                 {v.toUpperCase()}
               </button>
