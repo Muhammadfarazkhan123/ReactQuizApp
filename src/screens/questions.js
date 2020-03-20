@@ -56,13 +56,13 @@ class Question extends Component {
         this.setState({ index: index });
 
         document.getElementById(value).style.backgroundColor = "white";
-        document.getElementById(value).style.color = "black";
 
         var nodes = document
           .getElementById("mainDiv")
           .getElementsByTagName("button");
         for (var i = 0; i < nodes.length; i++) {
           nodes[i].disabled = false;
+          nodes[i].style.color = "black";
         }
         this.setState({ value: "" });
       }
@@ -79,6 +79,7 @@ class Question extends Component {
       .getElementsByTagName("button");
     for (var i = 0; i < nodes.length; i++) {
       nodes[i].disabled = true;
+      nodes[i].style.color = "grey";
     }
     console.log(
       e.target.value + unescape(typeQuest[index].correct_answer),
