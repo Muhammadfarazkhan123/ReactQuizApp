@@ -5,6 +5,7 @@ import Progress from "react-progressbar";
 import "./Style.css";
 import Questions from "../Data/questions.json";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router";
 
 class Question extends Component {
   // #d8d8d8
@@ -17,7 +18,8 @@ class Question extends Component {
       index: 0,
       score: 0,
       diable: false,
-      value: ""
+      value: "",
+      redirect: false
     };
     this.next = this.next.bind(this);
     this.check = this.check.bind(this);
@@ -99,11 +101,18 @@ class Question extends Component {
   }
 
   finish() {
-    var obj = {
-      score: this.state.score,
-      questions: this.state.typeQuest.length
-    };
-    this.props.Score(obj);
+    let { value } = this.state;
+
+    if (value != "") {
+      var obj = {
+        score: this.state.score,
+        questions: this.state.typeQuest.length
+      };
+      this.props.Score(obj);
+      this.setState({ value: "", redirect: true });
+    } else {
+      alert("select your answer");
+    }
   }
 
   render() {
@@ -119,6 +128,9 @@ class Question extends Component {
     });
     const select = this.props.select;
     option.splice(num, 0, answer);
+    if (this.state.redirect) {
+      return <Redirect push to="/Result" />;
+    }
     return (
       <div>
         <div style={{ backgroundColor: "grey", borderRadius: 2 }}>
@@ -153,11 +165,11 @@ class Question extends Component {
           </button>
         )}
         {index + 1 == typeQuest.length && (
-          <Link to="/Result">
-            <button onClick={this.finish} className="finishBtn">
-              Finish
-            </button>
-          </Link>
+          // <Link to="/Result" onClick={this.finish}>
+          <button className="finishBtn" onClick={this.finish}>
+            Finish
+          </button>
+          // </Link>
         )}
       </div>
     );

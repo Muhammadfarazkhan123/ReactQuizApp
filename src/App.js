@@ -23,7 +23,7 @@ class App extends Component {
             //   height: "100%",
             marginLeft: "15%",
             border: "2px solid #b4b4b4",
-            marginTop: "6%",
+            marginTop: "1%",
             borderRadius: 5,
             boxShadow: "3px 5px 5px #cfcbcc",
             paddingBottom: 20,
