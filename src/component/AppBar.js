@@ -35,7 +35,7 @@ class AppBarScreen extends Component {
               <MenuIcon />
             </IconButton> */}
             <Typography variant="h6" color="inherit" className={classes.title}>
-              Quiz App
+              QuizIn
             </Typography>
             {/* <Button color="inherit" style={{ marginLeft: 1170 }}>
               Login
